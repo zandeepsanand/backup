@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+html, body { height: 100%;font-family: var(--fontFamily !important); }
+body { margin: 0; }
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+:root {
+    --fontFamily: 'Poppins', sans-serif;
+    --fontFamily2: 'Poppins', sans-serif;
+    --fontFamily3: 'Poppins', sans-serif;
+    --mainColor: #ed4100;
+    --whiteColor: #ffffff;
+    --blackColor: #0c0305;
+    --fontSize: 18px;
+    --transition: .5s;
+}
+body {
+    background-color: var(--blackColor);
+    color: var(--whiteColor);
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    outline: none;
+    box-shadow: none;
+    font: {
+        family: var(--fontFamily);
+       
+    };
+    
+}

@@ -1,0 +1,1274 @@
+<div class="about">
+  <nav
+    class="navbar navbar-expand-lg navbar-dark border1 px-0 py-3"
+    id="navbar1"
+    style="z-index: 10000"
+  >
+    <div class="container-xl">
+      <!-- Logo -->
+      <!-- <a class="navbar-brand" href="#">
+          <img src="https://preview.webpixels.io/web/img/logos/clever-light.svg" class="h-8" alt="...">
+        </a> -->
+      <a href="#" class="navbar-brand text-light pe-auto border-ryt">
+        <img
+          src="../../../assets/img/era.png"
+          width="100"
+          class="h-8"
+          style="width: 50px; height: 50px"
+      /></a>
+      <!-- Navbar toggle -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse"
+        aria-controls="navbarCollapse"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <!-- Nav -->
+        <div class="navbar-nav mx-lg-auto">
+          <a class="btn1 btn-trapezoid-outline m-1" href="index">
+            <span>{{ "home" | translate }}</span>
+          </a>
+          <a class="btn2 btn-trapezoid-outline2 m-1" href="about">
+            <span>{{ "about" | translate }}</span>
+          </a>
+          <a class="btn1 btn-trapezoid-outline m-1" href="roaster">
+            <span>{{ "pro players" | translate }}</span>
+          </a>
+        </div>
+
+        <!-- <div class="end1">
+                      <img
+                          src="../../../assets/img/line.png"
+                          alt=""
+                          srcset=""
+                      />
+                  </div> -->
+        <!-- Right navigation -->
+
+        <!-- <a class="nav-item nav-link" href="#">Sign in</a> -->
+        <div class="switch2">
+          <select
+            class="form-select form-select-lg mb-3"
+            #langSelect
+            (change)="translate.use(langSelect.value)"
+          >
+            <option
+              value="en"
+              [attr.selected]="'en' === translate.currentLang ? '' : null"
+            >
+              English
+            </option>
+            <option
+              value="de"
+              [attr.selected]="'de' === translate.currentLang ? '' : null"
+            >
+              German
+            </option>
+            <option
+              value="ar"
+              [attr.selected]="'ar' === translate.currentLang ? '' : null"
+            >
+              Arabic
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <style>
+    .sticky {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding-bottom: 50px;
+      background-color: #000000;
+    }
+
+    .border1 {
+      border-bottom: 2px solid !important;
+      border-bottom-color: #ff6e30 !important;
+    }
+
+    .sticky + .content {
+      padding-top: 60px;
+    }
+    .border-ryt {
+      padding-right: 10px;
+      border-right: 2px solid !important;
+      border-right-color: #ff6e30 !important;
+    }
+  </style>
+
+  <style>
+    .plan_card1 {
+      padding-bottom: 30px;
+      background-color: black;
+      color: white;
+      font-weight: bolder;
+      border-style: solid;
+      border-width: medium;
+      border-color: #f77500;
+      border-bottom: #000000;
+      border-radius: 25px;
+      opacity: 0.7;
+      border-bottom-right-radius: 15px;
+      /* width: 1200px; */
+      /* background-color: rgba(5, 2, 61, 0.4); */
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+    }
+    .card1 {
+      /* height:556px !important */
+    }
+    .hover-div {
+      padding: 20px 20px;
+      text-align: center;
+      min-height: 350px;
+    }
+
+    .hover-div {
+      /* border-top: 1px solid #f8f8f8;
+                  background: #f8f8f8; */
+      box-shadow: 0px 1px 1px rgba(237, 95, 12, 0.944);
+      -webkit-transition: all 0.3s;
+      transition: all 0.3s;
+      margin: 10px 0px;
+    }
+    .hover-div:hover h3 {
+      color: #f77500;
+      font-weight: 700 !important;
+    }
+    .hover-div:hover {
+      -webkit-transform: translateY(-20px);
+      -ms-transform: translateY(-20px);
+      transform: translateY(-20px);
+      box-shadow: 0px 1px 1px rgba(24, 9, 0, 0.944);
+      cursor: pointer;
+      border-radius: 50px;
+      box-shadow: 0 80px 50px -60px rgba(207, 126, 4, 0.5);
+      position: relative;
+      top: -20px;
+    }
+    .container .box1 span {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 50;
+      pointer-events: none;
+    }
+
+    .container .box1 span::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      /* it has to be written like this not [backdrop-filter: blur(10px);] alone */
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+
+      opacity: 0;
+      transition: 0.5s;
+      animation: animate 2s linear infinite;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .container .box1:hover span::before {
+      top: -50px;
+      left: 50px;
+      width: 100px;
+      height: 100px;
+      opacity: 1;
+      border-radius: 20px;
+    }
+
+    .container .box1 span::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      /* same note as ABOVE */
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+
+      opacity: 0;
+      transition: 0.5s;
+      animation: animate 2s linear infinite;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      animation-delay: -1s;
+    }
+
+    .container .box1:hover span::after {
+      bottom: -50px;
+      right: 50px;
+      width: 100px;
+      height: 100px;
+      opacity: 1;
+    }
+
+    @keyframes animate {
+      0%,
+      100% {
+        transform: translateY(10px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    .font-weight-normal {
+      font-weight: 500 !important;
+      color: rgb(238, 238, 238);
+    }
+    .halo {
+      font-weight: 400 !important;
+      color: #fff !important;
+    }
+    .list1 {
+      text-align: left;
+      padding-left: 5%;
+      font-weight: 200;
+    }
+    .p-text {
+      font-weight: 200;
+      text-align: left;
+    }
+    .text-decoration {
+      color: wheat;
+      text-decoration: none !important;
+      color: inherit !important;
+    }
+    .text-left {
+      text-align: left;
+      font-size: large;
+    }
+  </style>
+
+  <div class="">
+    <section class="container pt-5" style="z-index: 100">
+      <h2 class="text-center text-light font-weight-bold headingg pb-5">
+        <span>TERMS AND CONDITIONS </span>
+      </h2>
+      <div class="container" style="z-index: 100; color: #fff">
+        <div class="col-lg-12 pb-5 col-sm-12 col-md-12">
+          <div class="card1 plan_card1 m-2 hover-div box1">
+            <span></span>
+            <h3 class="text-center p-3 font-weight-normal">
+              Welcome to GGera!
+            </h3>
+
+            <div class="container">
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  These are the terms and conditions for:
+                </li>
+
+                <ol>
+                  <a href="https://ggera.com" class="text-decoration">
+                    <li
+                      class="text-left pl-5 pt-2 pr-5"
+                      style="font-weight: 200"
+                    >
+                      • https://ggera.com
+                    </li></a
+                  >
+                </ol>
+                <p class="text-left pl-3 pt-2 pr-5" style="font-weight: 200">
+                  By using the platform, you agree to be bound by these terms
+                  and conditions and our privacy policy. In these terms and
+                  conditions, the word "platform" and "website" refers to the
+                  GGera website, "we", "us", "our" and "GGera" refer to GGera
+                  and "you" and "user" refer to you, the user of GGera.
+                </p>
+                <p class="text-left pl-3 pt-2 pr-5" style="font-weight: 200">
+                  The following terms and conditions apply to your use of the
+                  platform. This includes the mobile and tablet versions, as
+                  well as any other versions of GGera accessible via desktop,
+                  mobile, tablet, social media or other devices.
+                </p>
+                <p class="text-left pl-3 pt-2 pr-5" style="font-weight: 200">
+                  PLEASE READ THESE TERMS AND CONDITIONS CAREFULLY BEFORE USING,
+                  POSTING INFORMATION ON, OR OBTAINING ANY SERVICES FROM THE
+                  PLATFORM.
+                </p>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  1. ACCEPTANCE OF TERMS
+                </li>
+                <p class="text-left pl-3 pt-2 pr-5" style="font-weight: 200">
+                  This agreement sets forth the legally binding terms for your
+                  use of GGera. By registering and using the platform, you agree
+                  to be bound by this agreement. If you do not agree to the
+                  terms of this agreement, you must not use the platform and
+                  stop using the service immediately. We may modify this
+                  agreement from time to time, and such modification will be
+                  effective when posted on the platform. You agree to be bound
+                  by any modifications to these terms and conditions when you
+                  use GGera after such modification is posted; therefore, it is
+                  important that you review this agreement regularly.
+                </p>
+
+                <p class="text-left pl-3 pt-2 pr-5" style="font-weight: 200">
+                  Use of the platform is prohibited for children under the age
+                  of 13. In the case of children under 18 and over 13, it is the
+                  responsibility of parents and legal guardians to determine
+                  whether use of the platform or any of the content and
+                  functionality available on the platform is appropriate for
+                  their child or minor in custody.
+                </p>
+                <p class="text-left pl-3 pt-2 pr-5" style="font-weight: 200">
+                  You represent and warrant that all registration information
+                  you submit is accurate and truthful; and that your use of the
+                  platform does not violate any applicable law or regulation.
+                  GGera may, in its sole discretion, refuse to offer services to
+                  any user and change its eligibility criteria at any time. This
+                  provision is void where prohibited by law and the right to
+                  access the service and the platform is revoked in such
+                  jurisdictions.
+                </p>
+                <p class="text-left pl-3 pt-2 pr-5" style="font-weight: 200">
+                  By using the platform, you represent and warrant that you have
+                  full right, power and authority to enter into this agreement
+                  and to fully perform all of your obligations hereunder. You
+                  further represent and warrant that you have no legal
+                  incapacity or contractual restriction that would prevent you
+                  from entering into this agreement.
+                </p>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  2. ACCOUNT
+                </li>
+                <p class="text-left pl-3 pt-2 pr-5" style="font-weight: 200">
+                  When registering on the platform, the user must choose a
+                  password and may be asked for additional information such as
+                  email address. You are responsible for maintaining the
+                  confidentiality of your password and account information, and
+                  are fully responsible for all activities that occur under your
+                  password or account. You agree to (a) immediately notify GGera
+                  of any unauthorized use of your password or account or any
+                  other breach of security, and (b) ensure that you log out of
+                  your account at the end of each session. You may never use
+                  another user's account without GGera's prior authorization.
+                  GGera will not be liable for any loss or damage arising from
+                  your breach of this agreement.
+                </p>
+                <p class="p-text pl-3">
+                  Users will have the following functionalities available
+                  through their user account:
+                </p>
+                <p class="p-text pl-3">
+                  <br />Create orders:<br />
+                  Users can create orders through the "create order" section for
+                  the purpose of contracting coaching services from
+                  Professionals. The orders created by the users will be visible
+                  to the Professionals who will be able to see the orders and
+                  accept them according to the information included in the
+                  order. Once the Professional accepts the order, the order will
+                  no longer be visible to other Professionals. The user and the
+                  corresponding Professional will be able to communicate for the
+                  purpose of scheduling and receiving coaching services
+                </p>
+                <p class="p-text pl-3">
+                  <br />Premade parties:<br />
+                  Users will be able to join premade parties created by
+                  professional players of different games. Active premade
+                  parties will be displayed in the platform lobby. Premade
+                  parties will show the region and the style of game they are
+                  playing in that premade party. The user will be able to join
+                  any premade match by clicking on "join" and will automatically
+                  join the user in the user's premade balance. Users will be
+                  able to join and withdraw from the premade parties displayed
+                  in the platform lobby at any time. The creation of premade
+                  parties and the development of premade parties is the sole and
+                  exclusive responsibility of the users.
+                </p>
+                <p class="p-text pl-3">
+                  <br />Wagers:<br />
+                  Users will be able to create and participate in wagers where
+                  users can play against each other or team up with a
+                  Professional to play with other Professionals and users. By
+                  clicking on the betting balance corresponding to each user,
+                  the user will enter the wagering section. Users will be able
+                  to check the available wagers for each game available on the
+                  platform. Users will be able to wager credits from their
+                  betting balances and the winning player or team will be able
+                  to claim the wager prize at the end of each game. The wager
+                  prize will be automatically credited to the user's account
+                  once the game is over and the losing team's users accept
+                  defeat. To participate in some wagers available on the
+                  platform, users must create teams. The teams created by each
+                  user will be available in the statistics and profile of each
+                  user on the platform
+                </p>
+                <p class="p-text pl-3">
+                  Users may cancel their accounts at any time and for any reason
+                  by following the instructions on the platform or by sending us
+                  their request through our contact information. Such
+                  cancellation will only result in the deletion of the account
+                  and the deletion of all personal data transferred to GGera.
+                </p>
+                <p class="p-text pl-3">
+                  GGera reserves the right to terminate your account or your
+                  access immediately, with or without notice, and without
+                  liability to you, if GGera believes that you have breached any
+                  of these terms, provided GGera with false or misleading
+                  information, or interfered with another's use of the platform
+                </p>
+              </ol>
+
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  3. NOTIFICATIONS
+                </li>
+                <p class="text-left pl-3 pt-2 pr-5" style="font-weight: 200">
+                  By providing GGera with your email address, you agree that we
+                  may use your email address to send you notifications about
+                  GGera. We may also use your email address to send you
+                  notifications and other messages, such as changes to service
+                  features, news and special content. If you do not wish to
+                  receive these emails, you may opt-out of receiving them by
+                  submitting your removal request through the contact
+                  information or by using the "unsubscribe" option in the
+                  emails. Opting out may prevent you from receiving
+                  notifications and mailings about updates, news or special
+                  content
+                </p>
+              </ol>
+
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  4. PAYMENTS
+                </li>
+                <p class="p-text pl-3">
+                  Users can charge their user accounts with balance for the
+                  purpose of placing orders and creating or participating in
+                  wagers available on the platform. The user will be able to
+                  select the balance that the user wishes to charge to the user
+                  account. The payment for the corresponding balance will be
+                  charged to the credit/debit card immediately after the payment
+                  process is completed. Once the transaction is processed, we
+                  will send an electronic receipt to the user's email address.
+                </p>
+                <p class="p-text pl-3">
+                  Once the user's account is charged with balance. Users will be
+                  able to use the balance to create orders and create or
+                  participate in wagers. The balance may be divided between the
+                  balance for creating orders and the balance for wagering.
+                  Users will be able to transfer balances to create orders and
+                  to create and participate in wagers.
+                </p>
+                <p class="p-text pl-3">
+                  If you find any inconsistencies in your billing, please
+                  contact us via our contact details or you can make a complaint
+                  via the Buyer service of the relevant payment platform.
+                </p>
+                <p class="p-text pl-3">
+                  If your card is declined, you will receive an error message.
+                  No payment will be charged to your card and no order will be
+                  processed. There may be a pending transaction on your account
+                  until your card issuing bank withdraws the authorization. This
+                  usually takes 2 to 5 working days. Your card may be declined
+                  for a number of reasons, such as insufficient funds, AVS
+                  (Address Verification System) mismatch or you have entered an
+                  incorrect security code.
+                </p>
+                <p class="p-text pl-3">
+                  If your payment is declined, you will need to provide an
+                  alternative payment method or provide another card on which
+                  the payment can be charged and processed.
+                </p>
+                <p class="p-text pl-3">
+                  Your payment data will be treated and kept securely and for
+                  the sole purpose of processing transactions within the
+                  website. GGera reserves the right to contract any payment
+                  platform available on the market, which treats your data for
+                  the sole purpose of processing transactions within the
+                  website.
+                </p>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  5. COMMISSIONS
+                </li>
+
+                <p class="p-text pl-3">
+                  Users will pay a commission of (20%) to GGera of the total
+                  amount paid by the users for the coaching services and for
+                  each wager placed by the users through the platform. For each
+                  order and wager placed through the website by users, GGera
+                  will deduct the (20%) for each transaction. In the case of
+                  wagers, the commission will be charged for the total value of
+                  the wager of all players. The value of the GGera commission
+                  will be deducted from each transaction made by users, before
+                  any deduction for applicable fees or taxes.
+                </p>
+                <p class="p-text pl-3"></p>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  6. DISCLAIMER
+                </li>
+
+                <p class="p-text pl-3">
+                  By using the platform and the functionalities included in the
+                  platform, you accept personal responsibility for the results
+                  of the use of the platform. You agree that GGera does not
+                  guarantee any results, benefits or failures as a result of
+                  your use of our platform. You acknowledge and agree that your
+                  ultimate success or failure to use the platform and the
+                  functionalities available on the platform will be the result
+                  of your own efforts, your particular situation and other
+                  circumstances beyond GGera's control.
+                </p>
+                <p class="p-text pl-3">
+                  Disputes arising between users shall be resolved by the users
+                  themselves. GGera does not accept any claim in relation to the
+                  services and content published and offered on the website by
+                  the Businesses.
+                </p>
+                <p class="p-text pl-3">
+                  GGera is not liable for damages to the physical or moral
+                  integrity of persons, such as injury, death or any other moral
+                  damage such as threats, insults and slander that may fall on a
+                  natural person, as a result of the communications established
+                  on the website. The communications and relationships
+                  established between users as a result of any connection within
+                  the website are the sole and exclusive responsibility of the
+                  users.
+                </p>
+                <p class="p-text pl-3">
+                  In the event that one or more users or any third party
+                  initiates any type of claim or legal action against another or
+                  other users, each and every one of the users involved in such
+                  claims or actions exempt GGera from any liability.
+                </p>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  7. LICENSE TO USE THE PLATFORM
+                </li>
+
+                <p class="p-text pl-3">
+                  GGera grants you a personal, worldwide, royalty-free,
+                  non-assignable, non-exclusive license to use the software
+                  (platform) that GGera provides to you as part of the Services.
+                  This license is for the sole purpose of allowing you to use
+                  and enjoy the benefits of the services provided by GGera, in
+                  the manner permitted by these terms. You may not copy, modify,
+                  distribute, sell or rent any part of our services or the
+                  included software, nor may you reverse engineer or attempt to
+                  extract the source code of such software, unless such
+                  restrictions are prohibited by law, or you have our written
+                  permission.
+                </p>
+                <p class="p-text pl-3">
+                  You agree not to use the platform and services in a negligent,
+                  fraudulent or unlawful manner. You also agree not to engage in
+                  any conduct or action that may damage the image, interests or
+                  rights of the GGera platform or third parties
+                </p>
+                <p class="p-text pl-3">
+                  This service prohibits sending of messages, that: (1) Any kind
+                  of messages that are catalogued as SPAM. (2) Are harassing,
+                  abusive, defamatory, obscene, in bad faith, unethical or
+                  otherwise illegal content (3) distribute trojans, viruses or
+                  other malicious computer software (4) Any message with
+                  political or religious content (5) Any message with obscene or
+                  offensive content (6) Are intending to commit fraud,
+                  impersonating other persons, phishing, scams, or related crime
+                  (7) distribute intellectual property without ownership or a
+                  license to distribute such property (8) Breach, in any way,
+                  the terms of service, privacy policy or rules of this platform
+                  or the recipients.
+                </p>
+                <p class="p-text pl-3">
+                  GGera reserves the right to terminate the User's access
+                  immediately, with or without notice, and without liability to
+                  the User, if GGera believes that the User has violated any of
+                  these Terms or has interfered with the use of the Platform or
+                  the Service by others..
+                </p>
+              </ol>
+
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  8. COPYRIGHT
+                </li>
+
+                <p class="p-text pl-3">
+                  All GGera materials, including, without limitation, names,
+                  logos, trademarks, images, text, columns, graphics, videos,
+                  photographs, illustrations, software and other items, are
+                  protected by copyrights, trademarks and/or other intellectual
+                  property rights owned and controlled by GGera or by third
+                  parties who have licensed or provided their material to the
+                  platform. You acknowledge and agree that all GGera Materials
+                  are made available for your limited, non-commercial, personal
+                  use. Except as specifically provided herein. No material may
+                  be copied, reproduced, republished, sold, downloaded, posted,
+                  transmitted or distributed in any way, or otherwise used for
+                  any purpose, by any person or entity, without the prior
+                  express permission of GGera. You may not add to, delete,
+                  distort or otherwise modify the material. Any unauthorized
+                  attempt to modify any material, to defeat or circumvent any
+                  security feature, or to use GGera or any portion of the
+                  material for any purpose other than its intended purpose is
+                  strictly prohibited.
+                </p>
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  9. COPYRIGHT INFRINGEMENT
+                </li>
+
+                <p class="p-text pl-3">
+                  GGera will respond to all inquiries, complaints and claims
+                  related to the alleged infringement by breach or violation of
+                  the provisions contained in Hungarian and international
+                  copyright and intellectual property laws and regulations.
+                  GGera respects the intellectual property of others and expects
+                  users to do the same. If you believe, in good faith, that any
+                  material provided on the GGera website infringes your
+                  copyright or other intellectual property rights, please submit
+                  your request via our contact information, with the following
+                  information:
+                </p>
+                <ol>
+                  <li class="list1">
+                    • Identification of the intellectual property right that is
+                    allegedly infringed. All relevant registration numbers or a
+                    statement of ownership of the work should be included.
+                  </li>
+                  <li class="list1">
+                    • A statement that specifically identifies the location of
+                    the infringing material, in sufficient detail so that GGera
+                    can find it on the platform.
+                  </li>
+                  <li class="list1">
+                    • Your name, address, telephone number and email address.
+                  </li>
+                  <li class="list1">
+                    • A statement by you that you have a good faith belief that
+                    use of the allegedly infringing material is not authorized
+                    by the copyright owner, or its agents, or the law.
+                  </li>
+                  <li class="list1">
+                    • A statement by you, made under penalty of perjury, that
+                    the information in your notice is accurate and that you are
+                    the copyright owner or authorized to act on the copyright
+                    owner's behalf.
+                  </li>
+                  <li class="list1">
+                    • An electronic or physical signature of the copyright owner
+                    or the person authorized to act on the copyright owner's
+                    behalf.
+                  </li>
+                </ol>
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  10. USER CONTENT
+                </li>
+
+                <p class="p-text pl-3">
+                  Some features of the platform may allow users to provide
+                  content and information. The user retains copyright or any
+                  rights they may have in the content they provide through the
+                  platform. GGera is not responsible for the accuracy, safety or
+                  legality of the content posted on the platform by users. The
+                  user is solely and exclusively responsible for its content and
+                  the consequences of its publication. By providing content and
+                  information through the platform, the user grants GGera a
+                  worldwide, non-exclusive, royalty-free, fully paid right and
+                  license to host, store, transfer, display, perform, reproduce
+                  and modify the user's content for the sole purpose of
+                  displaying it through the platform and to the general public.
+                </p>
+
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  11. USER CONTENT REPRESENTATIONS AND WARRANTIES
+                </li>
+                <p class="p-text pl-3">
+                  GGera disclaims all liability in connection with the content
+                  that the user provides through the platform. The user is
+                  solely responsible for the content and the consequences of
+                  providing content through the platform. By providing content
+                  through the platform, the user affirms, represents and
+                  warrants that:
+                </p>
+                <ol>
+                  <li class="list1">
+                    a) You are the creator and owner of the content you provide
+                    through the platform, or have the necessary licenses,
+                    rights, consents and permissions to authorize GGera to
+                    publish and display your content through the platform
+                  </li>
+                  <li class="list1">
+                    b) Your content does not infringe, violate or misappropriate
+                    any third party right, including any copyright, trademark,
+                    patent, trade secret, moral right, right of privacy, right
+                    of publicity, or any other intellectual property or
+                    proprietary right; (ii) libel, defame, slander, libel, or
+                    invade the right of privacy, publicity or other proprietary
+                    rights of any other person; or (iii) cause GGera to violate
+                    any law or regulation.
+                  </li>
+                  <li class="list1">
+                    c) Your content could not be considered by a reasonable
+                    person to be objectionable, profane, indecent, pornographic,
+                    harassing, threatening, embarrassing, hateful or otherwise
+                    inappropriate.
+                  </li>
+                  <li class="list1">
+                    d) Your content does not and will not contain hateful
+                    content, threat of physical harm or harassment.
+                  </li>
+                  <li class="list1"></li>
+                </ol>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  12. USER CONTENT DISCLAIMER
+                </li>
+
+                <p class="p-text pl-3">
+                  GGera may, at any time and without prior notice, filter,
+                  remove, edit or block any user content that, in our judgment,
+                  violates these Terms or is otherwise objectionable. If a user
+                  or content owner notifies us that user content allegedly does
+                  not conform to these Terms, we may investigate the allegation
+                  and determine in our sole discretion whether to remove the
+                  user content, which we reserve the right to do at any time and
+                  without notice. You acknowledge and agree that GGera reserves
+                  the right to, and may from time to time, monitor any and all
+                  information transmitted or received through the service for
+                  operational and other purposes. If at any time GGera decides
+                  to monitor content, GGera continues to assume no
+                  responsibility or liability for the content or any loss or
+                  damage incurred as a result of the use of the content. During
+                  monitoring, information may be examined, recorded, copied and
+                  used in accordance with our privacy policy.
+                </p>
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  13. PERSONAL INFORMATION
+                </li>
+
+                <p class="p-text pl-3">
+                  Any personal information you provide in connection with your
+                  use of the platform will be used in accordance with our
+                  privacy policy. Please refer to our privacy policy.
+                </p>
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  14. CONFIDENTIAL INFORMATION
+                </li>
+
+                <p class="p-text pl-3">
+                  The information provided by our users through the use of the
+                  platform will be treated as confidential information and will
+                  be used solely for the purpose of providing the
+                  functionalities within the platform. GGera will protect such
+                  Confidential Information from disclosure to third parties by
+                  employing the same degree of care used to protect its own
+                  confidentiality or proprietary information of similar
+                  importance. If necessary to conduct a prospective business
+                  relationship, GGera may disclose Confidential Information
+                  received pursuant to our services to our employees who have a
+                  need to know and a legitimate interest, provided that the
+                  employees are obligated to protect such Confidential
+                  Information from unauthorized use and disclosure. Confidential
+                  Information will not be disclosed to third parties without the
+                  prior written consent of the user who owns the information.
+                </p>
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  15. PROHIBITED ACTIVITIES
+                </li>
+
+                <p class="p-text pl-3">
+                  The content and information available on the platform
+                  (including, but not limited to, data, information, text,
+                  music, sound, photos, graphics, video, maps, icons or other
+                  material), as well as the infrastructure used to provide such
+                  content and information, is owned by GGera or licensed to
+                  GGera by third parties. For all content other than your own,
+                  you agree not to modify, copy, distribute, transmit, transmit,
+                  display, perform, reproduce, publish, license, create
+                  derivative works from, transfer, or sell or resell any
+                  information, software or services obtained from or through the
+                  platform. In addition, the following activities are
+                  prohibited:
+                </p>
+                <ol>
+                  <li class="list1">
+                    • Using the services or content for any commercial purpose,
+                    outside the scope of the commercial purposes explicitly
+                    permitted in this agreement and related guidelines made
+                    available by GGera.
+                  </li>
+                  <li class="list1">
+                    • Access, monitor, reproduce, distribute, transmit,
+                    broadcast, stream, display, sell, license, copy or otherwise
+                    exploit any content of the services, including, but not
+                    limited to, the use of any robot, spider, scraper or other
+                    automated means or any manual process for any purpose not in
+                    accordance with this agreement or without our express
+                    written permission.
+                  </li>
+                  <li class="list1">
+                    • Violate the restrictions of any robot exclusion header on
+                    the Services or circumvent or circumvent other measures
+                    employed to prevent or limit access to the Services.
+                  </li>
+                  <li class="list1">
+                    • Take any action that imposes, or may impose, in our
+                    discretion, an unreasonable or disproportionately large load
+                    on our infrastructure
+                  </li>
+                  <li class="list1">
+                    • Establish a deep link to any part of the Services for any
+                    purpose without our express written permission.
+                  </li>
+                  <li class="list1">
+                    • Attempt to modify, translate, adapt, edit, decompile,
+                    disassemble or reverse engineer any software program used by
+                    GGera.
+                  </li>
+                  <li class="list1">
+                    • Circumvent, disable or otherwise interfere with
+                    security-related features of the Services or features that
+                    prevent or restrict the use or copying of any content.
+                  </li>
+                </ol>
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  16. DISCLAIMER OF WARRANTIES
+                </li>
+
+                <p class="p-text pl-3">
+                  GGera will provide its services with reasonable skill and
+                  care, but makes no warranties or representations with respect
+                  to the services of any other person.
+                </p>
+                <p class="p-text pl-3">
+                  Due to the nature of the Internet, GGera provides and
+                  maintains the Platform on an "as is," "as available" basis and
+                  does not promise that use of the Platform will be
+                  uninterrupted or error-free. We are not liable to you if we
+                  are unable to provide our Internet services for any reason
+                  beyond our control.
+                </p>
+                <p class="p-text pl-3">
+                  Our platform may occasionally contain links to other websites
+                  that are not under our control or maintained by us. These
+                  links are provided solely for your convenience and we are not
+                  responsible for the content of those websites.
+                </p>
+                <p class="p-text pl-3">
+                  Except as provided above, we cannot provide any other
+                  warranties, conditions or other terms, express or implied,
+                  statutory or otherwise, and all such terms are hereby excluded
+                  to the fullest extent permitted by law.
+                </p>
+
+                <p class="p-text pl-3">
+                  You shall be liable for any breach of these terms by you and,
+                  if you use the platform in breach of these terms, you shall be
+                  liable for and shall reimburse GGera for any loss or damage
+                  caused as a result.
+                </p>
+                <p class="p-text pl-3">
+                  GGera shall not be liable for any amount for breach of any
+                  obligation under this agreement if such breach is caused by
+                  the occurrence of any unforeseen event beyond its reasonable
+                  control, including, without limitation, Internet outages,
+                  communications outages, fire, flood, war or acts of God
+                </p>
+                <p class="p-text pl-3">
+                  These conditions do not affect your statutory rights as a
+                  consumer, which are available to you. Subject to the
+                  foregoing, and to the maximum extent permitted by law, GGera
+                  excludes liability for any loss or damage of any kind
+                  whatsoever arising, including without limitation any direct,
+                  indirect or consequential loss, whether or not arising out of
+                  any problem which you notify GGera of, and GGera shall have no
+                  liability to pay any money by way of compensation, including
+                  without limitation any liability in relation to:
+                </p>
+                <p class="p-text pl-3"></p>
+                <ol>
+                  <li class="list1">
+                    • Any incorrect or inaccurate information on the platform.
+                  </li>
+                  <li class="list1">
+                    • Infringement by any person of any Intellectual Property
+                    Rights of any third party caused by your use of the
+                    Platform.
+                  </li>
+                  <li class="list1">
+                    • Any loss or damage resulting from your use of or inability
+                    to use the Platform or resulting from unauthorized access to
+                    or alteration of your transmissions or data in circumstances
+                    beyond our control.
+                  </li>
+                  <li class="list1">
+                    • Any loss of profits, wasted expenditure, corruption or
+                    destruction of data or any other loss that does not arise
+                    directly from something we have done wrong.
+                  </li>
+                  <li class="list1">
+                    • Any amount or kind of loss or damage due to viruses or
+                    other malicious software that may infect a user's computer
+                    equipment, software, data or other property caused by
+                    persons accessing or using content on the platform or by
+                    transmissions through e-mails or attachments received from
+                    GGera.
+                  </li>
+                  <li class="list1">
+                    • All representations, warranties, conditions and other
+                    terms that would, but for this notice, be in effect.
+                  </li>
+                  <li class="list1"></li>
+                </ol>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  17. ELECTRONIC COMMUNICATIONS
+                </li>
+
+                <p class="p-text pl-3">
+                  GGera will not accept any liability for failed, partial or
+                  garbled computer transmissions, for any breakdown, failure,
+                  connection or availability of computer, telephone, network,
+                  electronic or Internet hardware or software, for the acts or
+                  omissions of any user, for the accessibility or availability
+                  of the Internet or for traffic congestion or for any
+                  unauthorized human act, including any error or mistake.
+                </p>
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  18. THIRD PARTIES
+                </li>
+
+                <p class="p-text pl-3">
+                  Through your use of the Platform and Services you may
+                  encounter links to third party sites or be able to interact
+                  with third party sites. These third parties may charge a fee
+                  for the use of certain content or services provided on or
+                  through their websites. Therefore, you should investigate as
+                  you deem necessary or appropriate before proceeding with any
+                  transaction with any third party to determine whether a fee
+                  will be incurred. Where GGera provides details of fees or
+                  charges for such third party content or services, such
+                  information is provided for convenience and information
+                  purposes only. Any interaction with third party sites and
+                  applications is at your own risk. You expressly acknowledge
+                  and agree that GGera is in no way responsible for such third
+                  party websites.
+                </p>
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  19. INDEMNIFICATION
+                </li>
+
+                <p class="p-text pl-3">
+                  You agree to defend and indemnify GGera from and against any
+                  claims, causes of action, demands, recoveries, losses,
+                  damages, fines, penalties or other costs or expenses of any
+                  kind or nature, including, but not limited to, reasonable
+                  legal and accounting fees, brought by third parties as a
+                  result of:
+                </p>
+
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+
+                <ol>
+                  <li class="list1">
+                    • Your breach of this Agreement or the documents referenced
+                    herein
+                  </li>
+                  <li class="list1">
+                    • Your violation of any law or the rights of a third party.
+                  </li>
+                  <li class="list1">• Your use of the GGera platform.</li>
+                  <li class="list1"></li>
+                  <li class="list1"></li>
+                </ol>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  20. CHANGES AND TERMINATION
+                </li>
+
+                <p class="p-text pl-3">
+                  We may change the platform and these terms at any time, at our
+                  sole discretion and without notice. You are responsible for
+                  keeping yourself informed of these terms. Your continued use
+                  of the platform constitutes your acceptance of any changes to
+                  these terms and any changes will supersede all previous
+                  versions of the terms. Unless otherwise specified, all changes
+                  to these terms apply to all users. In addition, we may
+                  terminate our agreement with you under these terms at any time
+                  by notifying you in writing (including by email) or without
+                  notice.
+                </p>
+
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  21. ASSIGNMENT
+                </li>
+
+                <p class="p-text pl-3">
+                  This agreement and any rights and licenses granted hereunder
+                  may not be transferred or assigned by you, but may be assigned
+                  by GGera without restriction.
+                </p>
+
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  22. INTEGRATION CLAUSE
+                </li>
+
+                <p class="p-text pl-3">
+                  This agreement, together with the privacy policy and any other
+                  legal notices posted by GGera, shall constitute the entire
+                  agreement between you and GGera and shall govern your use of
+                  the platform.
+                </p>
+
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  23. DISPUTES
+                </li>
+
+                <p class="p-text pl-3">
+                  You agree that any dispute, claim or controversy arising out
+                  of or relating to these terms and conditions, or the breach,
+                  termination, enforcement, interpretation or validity thereof
+                  or the use of the platform, shall be resolved by binding
+                  arbitration between you and GGera, provided that each party
+                  retains the right to bring an individual action in a court of
+                  competent jurisdiction.
+                </p>
+
+                <p class="p-text pl-3">
+                  In the event a dispute arises in connection with your use of
+                  the platform or breach of these terms and conditions, the
+                  parties agree to submit their dispute to arbitration
+                  resolution before a reputable arbitration organization as
+                  mutually agreed by the parties and in accordance with
+                  applicable commercial arbitration rules.
+                </p>
+                <p class="p-text pl-3">
+                  You agree to initiate a formal dispute proceeding by sending
+                  us a communication through our contact information. GGera may
+                  choose to send you a written offer after receiving your
+                  initial communication. If we offer and send you a settlement
+                  offer and you do not accept the offer, or we are unable to
+                  resolve your dispute satisfactorily and you wish to continue
+                  the dispute process, you must initiate the dispute resolution
+                  process before an accredited arbitration organization and file
+                  a separate Demand for Arbitration. Any award rendered by the
+                  arbitration tribunal shall be final and conclusive on the
+                  parties.
+                </p>
+                <p class="p-text pl-3">
+                  To the fullest extent permitted by law, you agree that you
+                  will not file, join or participate in any class action lawsuit
+                  in connection with any claim, dispute or controversy that may
+                  arise in connection with your use of the platform.
+                </p>
+                <p class="p-text pl-3">
+                  The courts of Hungary, shall have jurisdiction over any
+                  dispute, controversy or claim relating to GGera and its
+                  business operations. Any such dispute or controversy shall be
+                  brought and resolved in the courts of Hungary.
+                </p>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  24. FINAL PROVISIONS
+                </li>
+
+                <p class="p-text pl-3">
+                  These terms and conditions are governed by the laws of
+                  Hungary. Use of the GGera platform is unauthorized in any
+                  jurisdiction that does not give effect to all provisions of
+                  these terms and conditions
+                </p>
+
+                <p class="p-text pl-3">
+                  Our compliance with these terms is subject to existing laws
+                  and legal process, and nothing contained in these terms limits
+                  our right to comply with law enforcement or other governmental
+                  or legal requests or requirements relating to your use of our
+                  platform or information provided to or collected by us in
+                  connection with such use
+                </p>
+                <p class="p-text pl-3">
+                  If any section of these terms is held invalid, illegal or
+                  unenforceable, the validity, legality and enforceability of
+                  the remaining provisions shall not in any way be affected or
+                  impaired. Our failure to enforce or delay in enforcing any
+                  provision of these terms at any time does not waive our right
+                  to enforce the same or any other provision in the future.
+                </p>
+                <p class="p-text pl-3">
+                  Any rights not expressly granted herein are reserved.
+                </p>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  25. CONTACT INFORMATION
+                </li>
+
+                <p class="p-text pl-3">
+                  If you have questions or concerns about these terms, please
+                  contact us through our contact page or by using the contact
+                  information below:
+                </p>
+                <p class="p-text font-weight-bold pl-3">GGera.</p>
+                <ol>
+                  <li class="list1">• Email : Support@ggera.com</li>
+                  <li class="list1">• Tel.Nr. 0049/17672270928</li>
+                  <li class="list1">• 2921 Komarom, Budapest , Hungary</li>
+                </ol>
+
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+                <p class="p-text pl-3"></p>
+              </ol>
+            </div>
+          </div>
+
+          <h3 class="text-left text-light font-weight-bold headingg pb-5">
+            <span> </span>
+          </h3>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+<div class="pt-5">
+  <app-footer></app-footer>
+</div>

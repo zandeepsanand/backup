@@ -1,0 +1,981 @@
+<div class="about" >
+  <nav
+    class="navbar navbar-expand-lg navbar-dark border1 px-0 py-3"
+    id="navbar1"
+    style="z-index: 10000"
+  >
+    <div class="container-xl">
+      <!-- Logo -->
+      <!-- <a class="navbar-brand" href="#">
+          <img src="https://preview.webpixels.io/web/img/logos/clever-light.svg" class="h-8" alt="...">
+        </a> -->
+      <a href="#" class="navbar-brand text-light pe-auto border-ryt">
+        <img
+          src="../../../assets/img/era.png"
+          width="100"
+          class="h-8"
+          style="width: 50px; height: 50px"
+      /></a>
+      <!-- Navbar toggle -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse"
+        aria-controls="navbarCollapse"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <!-- Nav -->
+        <div class="navbar-nav mx-lg-auto en_lang">
+          <a class="btn1 btn-trapezoid-outline m-1" href="index">
+            <span>{{ "home" | translate }}</span>
+          </a>
+          <a class="btn2 btn-trapezoid-outline2 m-1" href="about">
+            <span>{{ "about" | translate }}</span>
+          </a>
+          <a class="btn1 btn-trapezoid-outline m-1" href="roaster">
+            <span>{{ "pro players" | translate }}</span>
+          </a>
+        </div>
+
+        <div class="end1">
+          <img src="../../../assets/img/line glow2.png" alt="" srcset="" />
+        </div>
+        <!-- Right navigation -->
+
+        <!-- <a class="nav-item nav-link" href="#">Sign in</a> -->
+        <div class="switch2">
+          <select
+            class="form-select form-select-lg mb-3"
+            #langSelect
+            (change)="translate.use(langSelect.value)"
+          >
+            <option
+              value="en"
+              [attr.selected]="'en' === translate.currentLang ? '' : null"
+            >
+              English
+            </option>
+            <option
+              value="de"
+              [attr.selected]="'de' === translate.currentLang ? '' : null"
+            >
+              German
+            </option>
+            <option
+              value="ar"
+              [attr.selected]="'ar' === translate.currentLang ? '' : null"
+            >
+              Arabic
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <style>
+    .sticky {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding-bottom: 50px;
+      background-color: #000000;
+    }
+
+    .border1 {
+      border-bottom: 2px solid !important;
+      border-bottom-color: #ff6e30 !important;
+    }
+
+    .sticky + .content {
+      padding-top: 60px;
+    }
+    .border-ryt {
+      padding-right: 10px;
+      border-right: 2px solid !important;
+      border-right-color: #ff6e30 !important;
+    }
+  </style>
+
+  <script>
+    window.onscroll = function () {
+      myFunction1();
+    };
+
+    var navbar = document.getElementById("navbar1");
+    var sticky = navbar.offsetTop;
+
+    function myFunction1() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky");
+      } else {
+        navbar.classList.remove("sticky");
+      }
+      if (window.pageYOffset <= sticky) {
+        navbar.classList.remove("sticky");
+      }
+    }
+  </script>
+  <style>
+    .plan_card1 {
+      padding-bottom: 30px;
+      background-color: black;
+      color: white;
+      font-weight: bolder;
+      border-style: solid;
+      border-width: medium;
+      border-color: #f77500;
+      border-bottom: #000000;
+      border-radius: 25px;
+      opacity: 0.7;
+      border-bottom-right-radius: 15px;
+      /* width: 1200px; */
+      /* background-color: rgba(5, 2, 61, 0.4); */
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+    }
+    .card1 {
+      /* height:556px !important */
+    }
+    .hover-div {
+      padding: 20px 20px;
+      text-align: center;
+      min-height: 350px;
+    }
+
+    .hover-div {
+      /* border-top: 1px solid #f8f8f8;
+                  background: #f8f8f8; */
+      box-shadow: 0px 1px 1px rgba(237, 95, 12, 0.944);
+      -webkit-transition: all 0.3s;
+      transition: all 0.3s;
+      margin: 10px 0px;
+    }
+    .hover-div:hover h3 {
+      color: #f77500;
+      font-weight: 700 !important;
+    }
+    .hover-div:hover {
+      -webkit-transform: translateY(-20px);
+      -ms-transform: translateY(-20px);
+      transform: translateY(-20px);
+      box-shadow: 0px 1px 1px rgba(24, 9, 0, 0.944);
+      cursor: pointer;
+      border-radius: 50px;
+      box-shadow: 0 80px 50px -60px rgba(207, 126, 4, 0.5);
+      position: relative;
+      top: -20px;
+    }
+    .container .box1 span {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 50;
+      pointer-events: none;
+    }
+
+    .container .box1 span::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      /* it has to be written like this not [backdrop-filter: blur(10px);] alone */
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+
+      opacity: 0;
+      transition: 0.5s;
+      animation: animate 2s linear infinite;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .container .box1:hover span::before {
+      top: -50px;
+      left: 50px;
+      width: 100px;
+      height: 100px;
+      opacity: 1;
+      border-radius: 20px;
+    }
+
+    .container .box1 span::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      /* same note as ABOVE */
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+
+      opacity: 0;
+      transition: 0.5s;
+      animation: animate 2s linear infinite;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      animation-delay: -1s;
+    }
+
+    .container .box1:hover span::after {
+      bottom: -50px;
+      right: 50px;
+      width: 100px;
+      height: 100px;
+      opacity: 1;
+    }
+
+    @keyframes animate {
+      0%,
+      100% {
+        transform: translateY(10px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    .font-weight-normal {
+      font-weight: 500 !important;
+      color: rgb(238, 238, 238);
+    }
+    .halo {
+      font-weight: 400 !important;
+      color: #fff !important;
+    }
+    .list1 {
+      text-align: left;
+      padding-left: 5%;
+    }
+    .p-text {
+      font-weight: 200;
+      text-align: left;
+    }
+    .text-left {
+      text-align: left;
+      font-size: larger;
+    }
+  </style>
+
+  <div class="">
+    <section class="container pt-5" style="z-index: 100">
+      <h2 class="text-center text-light font-weight-bold headingg pb-5">
+        <span>PRIVACY POLICY </span>
+      </h2>
+      <div class="container" style="z-index: 100; color: #fff">
+        <div class="col-lg-12 pb-5 col-sm-12 col-md-12">
+          <div class="card1 plan_card1 m-2 hover-div box1">
+            <span></span>
+            <h3 class="text-center p-3 font-weight-normal" br>
+              Welcome to GGera!
+            </h3>
+            <p class="text-left pl-5 pt-2 pr-5" style="font-weight: 200">
+              GGera values your privacy and the protection of your personal
+              data. This privacy policy describes what information we collect
+              from you, how we collect it, how we use it, how we obtain your
+              consent, how long we keep it in our databases and, if necessary,
+              with whom we share it. <br />
+            </p>
+            <p class="text-left pl-5 pt-2 pr-5" style="font-weight: 200">
+              By using the platform and website, you are accepting the practices
+              described in this privacy policy. Your use of the platform is also
+              subject to our terms and conditions. In this privacy policy, the
+              word "platform" and "website" refer to the GGera website, "we",
+              "us", "our" and "GGera" refer to GGera and "you" and "user" refer
+              to you, the user of GGera
+            </p>
+            <p class="text-left pl-5 pt-2 pr-5" style="font-weight: 200">
+              This privacy policy may change from time to time. Your continued
+              use of the platform after we make changes to this privacy policy
+              is deemed acceptance of those changes, so please check this policy
+              periodically for updates. This privacy policy has been developed
+              and is maintained in accordance with all applicable federal and
+              international laws and regulations and, specifically, with the
+              General Data Protection Regulation (GDPR - European Regulations).
+            </p>
+
+            <div class="container">
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  1. GENERAL INFORMATION
+                </li>
+
+                <p class="text-left pl-3 pt-2 pr-5" style="font-weight: 200">
+                  The personal data of users that are collected and processed
+                  through:
+                </p>
+                <ol>
+                  <li class="text-left pl-5 pt-2 pr-5" style="font-weight: 200">
+                    • https://ggera.com
+                  </li>
+                </ol>
+                <p class="text-left pl-3 pt-2 pr-5" style="font-weight: 200">
+                  Will be under the responsibility and in charge of:
+                </p>
+                <ol>
+                  <li class="text-left pl-5 pt-2 pr-5" style="font-weight: 200">
+                    • GGera.
+                  </li>
+                  <li class="text-left pl-5 pt-2 pr-5" style="font-weight: 200">
+                    • Email : Support@ggera.com
+                  </li>
+                  <li class="text-left pl-5 pt-2 pr-5" style="font-weight: 200">
+                    • Tel.Nr. 0049 17672270928
+                  </li>
+                  <li class="text-left pl-5 pt-2 pr-5" style="font-weight: 200">
+                    • 2921 Komarom, Budapest , Hungary
+                  </li>
+
+                  <li
+                    class="text-left pl-5 pt-2 pr-5"
+                    style="font-weight: 200"
+                  ></li>
+                </ol>
+                <p class="text-left pl-3 pt-2 pr-5" style="font-weight: 200">
+                  (Hereinafter referred to as "GGera").
+                </p>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  2. TYPES OF INFORMATION COLLECTED
+                </li>
+                <p class="text-left pl-3 pt-2 pr-5" style="font-weight: 200">
+                  The information we collect from our users helps us to
+                  effectively deliver our platform and to personalize and
+                  continually improve the user experience on the platform. These
+                  are the types of information we collect:
+                </p>
+
+                <p class="text-left pl-3 pt-2 pr-5" style="font-weight: 200">
+                  <br />
+                  Information you provide to us.<br />
+                  You provide information when you contribute, search, read and
+                  view content on the platform, register as a user, use the
+                  functionalities available on the platform, place an order,
+                  join premade parties, create or join a team, participate or
+                  create wagers and/or communicate with us through our contact
+                  details or contact forms. As a result of those actions, you
+                  may provide us with the following information:
+                </p>
+                <ol>
+                  <li class="list1">• Name</li>
+                  <li class="list1">• E-mail address</li>
+                  <li class="list1">• Phone number</li>
+                  <li class="list1">• Activision ID</li>
+                  <li class="list1">• User content</li>
+                  <li class="list1">
+                    • Any additional information related to you that you provide
+                    to us directly or indirectly through our platform.
+                  </li>
+                  <p class="p-text">
+                    GGera will not collect any personally identifiable
+                    information about you unless you provide it.
+                  </p>
+                </ol>
+                <p class="p-text">
+                  <br />Information Collected Automatically:<br />
+                  By accessing and using the platform you automatically provide
+                  us with the following information:
+                </p>
+                <ol>
+                  <li class="list1">
+                    • The device and usage information you use to access the
+                    website
+                  </li>
+                  <li class="list1">• Your IP address</li>
+                  <li class="list1">• Browser and device characteristics</li>
+                  <li class="list1">• Operating system</li>
+                  <li class="list1">• Referring URLs</li>
+                </ol>
+                <p class="p-text">
+                  If you access the platform through a mobile phone, we will
+                  collect the following information:
+                </p>
+                <ol>
+                  <li class="list1">• Mobile device ID</li>
+                  <li class="list1">• Model and manufacturer</li>
+                  <li class="list1">• Operating system</li>
+                  <li class="list1">• Version information</li>
+                  <li class="list1">• IP address</li>
+                </ol>
+                <p class="p-text">
+                  <br />OAuth: <br />
+                  We use the 0Auth verification and authentication system to
+                  authenticate and verify our users on our GGera platform. This
+                  verification and authentication system may collect users'
+                  Google information such as the user's Google account
+                  credentials for the sole and exclusive purpose of verifying
+                  the user and allowing the user to use the features of the
+                  GGera platform. Users' Google data collected through the OAuth
+                  system may be transmitted to and stored by Google (Google
+                  Cloud) on servers in the United States. The Google user data
+                  collected by OAuth will be used for the sole and exclusive
+                  purpose of verifying the user's registration and use of the
+                  GGera platform. By using the platform and providing your
+                  consent on the OAuth consent screen you acknowledge that we
+                  may process your Google account data for the purposes
+                  described in this privacy policy. You may withdraw your
+                  consent at any time and request deletion of the Google data
+                  provided through the OAuth system, in accordance with clause 8
+                  of this privacy policy.
+                </p>
+
+                <p class="p-text">
+                  <br />Payment Information:<br />
+                  Your payment data will be processed by the payment processors
+                  available at GGera, which will process and store your data
+                  securely and for the sole purpose of processing the purchase
+                  of the services. GGera reserves the right to contract any
+                  payment platform available in the market, which processes your
+                  data for the sole purpose of processing the purchase of the
+                  services
+                </p>
+                <p class="p-text">
+                  <br />GOOGLE Analytics.<br />
+                  We use Google Analytics provided by Google, Inc. of the United
+                  States ("Google"). These tools and technologies collect and
+                  analyze certain types of information, such as IP addresses,
+                  device and software identifiers, referring and exit URLs,
+                  feature usage metrics and statistics, usage and purchase
+                  history, media access control address (MAC address), unique
+                  mobile device identifiers, and other similar information
+                  through the use of cookies. The information generated by
+                  Google Analytics (including your IP address) may be
+                  transmitted to and stored by Google on servers in the United
+                  States. We use GOOGLE Analytics data collection to improve the
+                  website and our service.
+                </p>
+                <p class="p-text">See Google's privacy policy here:</p>
+                <ol>
+                  <a href=" https://policies.google.com/privacy">
+                    <li
+                      class="list1"
+                      style="text-decoration: none; color: wheat"
+                    >
+                      • https://policies.google.com/privacy
+                    </li></a
+                  >
+                </ol>
+                <p class="p-text">
+                  <br />
+                  Facebook Pixel:<br />
+                  Our website uses the Facebook Pixel. Through the Facebook
+                  Pixel we can collect user information for different purposes.
+                  We use the Facebook Pixel for the following purposes:
+                </p>
+                <ol>
+                  <li class="list1">
+                    • Collect statistics about our website (for example, the
+                    number of users who visited a page).
+                  </li>
+                  <li class="list1">
+                    • Collect information about how the user interacts with our
+                    website (e.g., whether the user has opened or followed links
+                    on our website).
+                  </li>
+                  <li class="list1">
+                    • Personalize online services and marketing communications.
+                  </li>
+                  <li class="list1">
+                    • Tailor advertisements to users and optimize advertising
+                    campaigns.
+                  </li>
+                </ol>
+                <p class="p-text">
+                  The information collected through the Facebook pixel will be
+                  collected and stored by Facebook and will be treated in
+                  accordance with its privacy policy. The information we collect
+                  through the Facebook pixel does not personally identify the
+                  user and will never be used for purposes other than those
+                  contained in this privacy policy and Facebook's privacy
+                  policy.
+                </p>
+                <p class="p-text">See Facebook's privacy policy here:</p>
+                <ol>
+                  <a
+                    href="https://www.facebook.com/privacy/explanation"
+                    style="text-decoration: none; color: wheat"
+                  >
+                    <li class="list1">
+                      • https://www.facebook.com/privacy/explanation
+                    </li></a
+                  >
+                </ol>
+                <p class="p-text">
+                  <br />
+                  Social networks:<br />
+                  On our platform you will find links and functions linked to
+                  different social networks or services, where you can share
+                  your information.
+                </p>
+                <p class="p-text">
+                  It is advisable to consult the privacy and data protection
+                  policy of each social network used on our platform.
+                </p>
+                <ol>
+                  <a
+                    href="https://www.facebook.com/privacy/explanation"
+                    style="text-decoration: none; color: wheat"
+                  >
+                    <li class="list1">
+                      • Facebook: https://www.facebook.com/privacy/explanation
+                    </li></a
+                  >
+                  <a
+                    href="http://instagram.com/about/legal/privacy/"
+                    style="text-decoration: none; color: wheat"
+                  >
+                    <li class="list1">
+                      • Instagram: http://instagram.com/about/legal/privacy/
+                    </li></a
+                  >
+                </ol>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  3. HOW LONG WE KEEP YOUR DATA
+                </li>
+                <p class="text-left pl-3 pt-2 pr-5" style="font-weight: 200">
+                  Personal data provided by users through the platform will be
+                  retained for the time necessary to provide the functionalities
+                  available on the platform or until the user maintains the
+                  account on the platform or decides to close it or until GGera
+                  closes and deletes the user's account. GGera may retain
+                  personal data for a longer period provided that the user has
+                  consented to such processing, as long as such consent is not
+                  withdrawn. In addition, GGera may be obliged to retain
+                  personal data for a longer period provided that this is
+                  required for compliance with a legal obligation or by order of
+                  an authority. Once the retention period has expired, the
+                  personal data will be deleted. Therefore, the right of access,
+                  the right of deletion, the right of rectification and the
+                  right to data portability cannot be asserted after the
+                  retention period has expired.
+                </p>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  4. HOW WE USE YOUR INFORMATION.
+                </li>
+                <p class="text-left pl-3 pt-2 pr-5" style="font-weight: 200">
+                  In general, we use the information we collect primarily to
+                  provide, maintain, protect and improve our platform and our
+                  current services. We use personal information collected
+                  through our platform as described below:
+                </p>
+                <ol>
+                  <li class="list1">• Provide the platform.</li>
+                  <li class="list1">
+                    • Authenticate and verify the user through 0Auth.
+                  </li>
+                  <li class="list1">• User registration.</li>
+                  <li class="list1">• Identify you as a user in our system.</li>
+                  <li class="list1">• Provide platform functionalities.</li>
+                  <li class="list1">
+                    • Facilitate communication between users
+                  </li>
+                  <li class="list1">• Provide the wagering system.</li>
+                  <li class="list1">
+                    • Processing transactions, including GGera commissions.
+                  </li>
+                  <li class="list1">
+                    • Facilitate the creation of premade parties.
+                  </li>
+                  <li class="list1">
+                    • Understand and improve your experience using our platform.
+                  </li>
+                  <li class="list1">
+                    • Respond to your comments or questions through our support
+                    team.
+                  </li>
+                  <li class="list1">
+                    • Send you related information, including confirmations,
+                    invoices, technical notices, updates, security alerts, and
+                    support and administrative messages.
+                  </li>
+                  <li class="list1">
+                    • Communicate with you about upcoming events, offers and
+                    news about content, products and services offered by GGera
+                    and our partners.
+                  </li>
+                  <li class="list1">• GGera marketing purposes</li>
+                  <li class="list1">
+                    • Link or combine your information with other data we obtain
+                    from third parties to help us understand your needs and
+                    provide you with better service.
+                  </li>
+                  <li class="list1">
+                    • Protect, investigate and deter fraudulent, unauthorized or
+                    illegal activities.
+                  </li>
+                </ol>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  5. HOW DO YOU OBTAIN MY CONSENT?
+                </li>
+                <p class="text-left pl-3 pt-2 pr-5" style="font-weight: 200">
+                  By registering as a user, granting your consent on the OAuth
+                  consent screen, placing an order, using the features available
+                  on the platform, joining a prize-winning party, participating
+                  or creating a bet, contacting us through the contact forms or
+                  our contact information, and providing us with personal
+                  information to communicate with you, you consent to our
+                  collection, storage and use of your information on the terms
+                  contained in this privacy policy. You may withdraw your
+                  consent at any time by sending us your request through the
+                  contact information or contact page.
+                </p>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  6. HOW WE SHARE INFORMATION
+                </li>
+                <ol>
+                  <p class="p-text">
+                    Information about our customers is an important part of our
+                    business, and we are not in the business of selling it to
+                    others. We share customer information only as described
+                    below.
+                  </p>
+
+                  <p class="p-text">
+                    <br />Third-Party Service Providers.<br />
+                    We use third-party services to perform certain functions on
+                    our platform. Some of these functions and services are:
+                    Platform building and hosting, user authentication (OAuth),
+                    payment processing, data analysis (Google Analytics),
+                    performing tracking and analytics functions on the platform,
+                    sending emails, marketing services and search results.
+                  </p>
+                  <p class="p-text">
+                    These third-party services and tools may have access to
+                    personal information needed to perform their functions, but
+                    may not use that information for other purposes. Information
+                    shared with these third party services will be treated and
+                    stored in accordance with their respective privacy policies
+                    and our privacy policy
+                  </p>
+
+                  <p class="p-text">
+                    <br />
+                    Email marketing: <br />
+                    We use the information provided by users to conduct
+                    marketing campaigns and send relevant information to our
+                    users. By registering as a user on the platform, you
+                    authorize us to use your information for email marketing. We
+                    will use third party services to perform email marketing, so
+                    we may share certain information with some of these third
+                    parties for the sole and exclusive purpose of sending emails
+                    through email marketing and in accordance with our privacy
+                    policy.
+                  </p>
+
+                  <p class="p-text">
+                    <br />
+                    Business Transfers.<br />
+                    In the event GGera creates, merges with, or is acquired by
+                    another entity, your information will likely be transferred.
+                    GGera will send you an email or post a prominent notice on
+                    our platform before your information becomes subject to
+                    another privacy policy
+                  </p>
+                  <p class="p-text">
+                    <br />
+                    Protection of GGera and Others.<br />
+                    We release personal information when we believe release is
+                    appropriate to comply with the law, enforce or apply our
+                    terms and conditions and other agreements, or protect the
+                    rights, property, or safety of GGera, our users, or others.
+                    This includes exchanging information with other companies
+                    and organizations for fraud protection and credit risk
+                    reduction.
+                  </p>
+                  <p class="p-text">
+                    <br />
+                    Anonymous Information. <br />
+                    GGera uses anonymous browsing information collected
+                    automatically by our servers primarily to help us administer
+                    and improve the platform. We may also use aggregated
+                    anonymous information to provide information about the
+                    Platform to potential business partners and other
+                    unaffiliated entities. This information is not personally
+                    identifiable.
+                  </p>
+                  <p class="p-text">
+                    <br />Email Address. <br />
+                    The email address you provide to receive email
+                    communications from us will never be rented or sold to third
+                    parties.
+                  </p>
+                </ol>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  7. PROTECTION OF YOUR INFORMATION
+                </li>
+                <ol>
+                  <p class="text-left pl-3 pt-2 pr-5" style="font-weight: 200">
+                    We work to protect the security of your information during
+                    transmission by using Secure Sockets Layer (SSL) software,
+                    which encrypts information you provide through the platform.
+                    If transactions are processed on the platform, transaction
+                    information is transmitted to and from the platform in
+                    encrypted form using industry-standard SSL connections to
+                    help protect such information from interception. We restrict
+                    authorized access to your personal information to those
+                    persons who have a legitimate need to know that information
+                    and to those persons you have authorized to have access to
+                    that information. GGera follows generally accepted industry
+                    standards to protect the personal information submitted to
+                    us, both during transmission and once GGera receives it. No
+                    method of transmission over the Internet, or method of
+                    electronic storage, is 100% secure. Therefore, while GGera
+                    strives to use commercially acceptable means to protect your
+                    personal information, we cannot guarantee its absolute
+                    security. We will not sell, distribute or lease your
+                    personal information to third parties unless we have your
+                    permission or are required by law to do so.
+                  </p>
+                </ol>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  8. RIGHTS
+                </li>
+                <ol>
+                  <p class="text-left pl-3 pt-2 pr-5" style="font-weight: 200">
+                    Users who provide information through our platform, as data
+                    subjects, have the right to access, rectify, download or
+                    delete their information, as well as to restrict and oppose
+                    certain processing of their information. While some of these
+                    rights apply generally, others only apply in certain limited
+                    circumstances. These rights are described below:
+                  </p>
+                  <ol>
+                    <p class="p-text">
+                      <br />
+                      • Access and portability:<br />
+                      to access and know what information is stored on our
+                      servers, you can send us your request through our contact
+                      information.
+                    </p>
+                    <p class="p-text">
+                      <br />• Rectification, restriction, limitation and
+                      deletion:<br />
+                      You may also rectify, restrict, limit or delete much of
+                      your information.
+                    </p>
+                    <p class="p-text">
+                      <br />
+                      • Right to be informed:
+                      <br />
+                      Users of our platform will be informed, upon request,
+                      about what data we collect, how it is used, how long it is
+                      kept and whether it is shared with third parties.
+                    </p>
+                    <p class="p-text">
+                      <br />• Object:<br />
+                      Where we process your data based on our legitimate
+                      interests, as explained above, or in the public interest,
+                      you may object to this processing in certain
+                      circumstances. In such cases, we will stop processing your
+                      information unless we have legitimate grounds to continue
+                      processing it or where necessary for legal reasons.
+                    </p>
+                    <p class="p-text">
+                      <br />• Withdraw consent:<br />
+                      Where you have previously given your consent, for example
+                      to allow us to process and store your personal
+                      information, you have the right to withdraw your consent
+                      to the processing and storage of your information at any
+                      time. For example, you can withdraw your consent by
+                      updating your settings. In certain cases, we may continue
+                      to process your information after you have withdrawn your
+                      consent if we have a lawful basis for doing so or if your
+                      withdrawal of consent was limited to certain processing
+                      activities.
+                    </p>
+                    <p class="p-text">
+                      <br />
+                      • Complaint:<br />
+                      If you wish to lodge a complaint about our use of your
+                      information (and without prejudice to any other rights you
+                      may have), you have the right to do so with your local
+                      supervisory authority. Users may exercise all of these
+                      rights by contacting us via the contact information or
+                      contact page.
+                    </p>
+                    <p class="p-text">
+                      <br />• Rights related to automated decision-making,
+                      including profiling:<br />
+                      Users may request that we provide them with a copy of the
+                      automated processing activities we conduct if they believe
+                      that data is being unlawfully processed
+                    </p>
+                  </ol>
+                  <p class="p-text">
+                    <br /><br />
+                    Users or owners of the personal data they provide through
+                    the platform can exercise these rights over their personal
+                    data at any time and without any limitation by sending us
+                    their request through our contact information.
+                  </p>
+                </ol>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  9. PROTECTION OF CHILDREN'S ONLINE PRIVACY
+                </li>
+                <p class="text-left pl-3 pt-2 pr-5" style="font-weight: 200">
+                  We comply with the requirements of the General Data Protection
+                  Regulation (GDPR - European Regulations), regarding the
+                  protection of children's personal information. We do not
+                  collect information from children under the age of 13. If we
+                  learn that a child under 13 has provided us with personal
+                  information, we will take immediate steps to delete that
+                  information.
+                </p>
+              </ol>
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  10. THIRD PARTIES
+                </li>
+                <p class="text-left pl-3 pt-2 pr-5" style="font-weight: 200">
+                  Except as expressly included in this privacy policy, this
+                  document addresses only the use and disclosure of information
+                  GGera collects from you. If you disclose your information to
+                  others, whether other users or GGera vendors, different rules
+                  may apply to their use or disclosure of the information you
+                  disclose to them. GGera does not control the privacy policies
+                  of third parties, and you are subject to the privacy policies
+                  of those third parties where applicable. GGera is not
+                  responsible for the privacy or security practices of other
+                  Internet platforms, including those linked to or from the
+                  GGera platform. GGera encourages you to ask questions before
+                  disclosing your personal information to others.
+                </p>
+              </ol>
+              <!-- <ol>
+        <li class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1">
+          11. CONTROLLING YOUR INFORMATION
+        </li>
+        <p class="text-left pl-3 pt-2 pr-5 " style="font-weight: 200;">
+          Rectification of Inaccurate or Incomplete Information. You have the right to ask us to correct 
+    inaccurate or incomplete personal information concerning you.
+        </p>
+        <p class="text-left pl-3 pt-2 pr-5 " style="font-weight: 200;">
+          Data Access and Portability. You have the right to request copies of your personal information 
+          held by us. You may also be entitled to request copies of personal information that you have 
+          provided to us in a structured, commonly used, and machine-readable format and/or request us 
+          to transmit this information to another service provider (where technically feasible).
+        </p>
+        <p class="text-left pl-3 pt-2 pr-5 " style="font-weight: 200;">
+          Data Retention and Erasure. GGera generally retains your personal information for a period of six 
+          years after your last active use of our website (in line with our legal obligation to keep order 
+          information for this duration for tax, legal reporting, and auditing obligations). If you no longer 
+          want us to keep your information, you can request that we erase your personal information
+        </p>
+      </ol>
+      <ol>
+        <li class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1">
+          12. OBTAINING, CHANGING OR DELETING YOUR INFORMATION
+        </li>
+       
+        <ol>
+          <p class="text-left pl-3 pt-2 pr-5 " style="font-weight: 200;">
+            <br>Access to your personal information<br>
+          </p>
+          <p class="p-text">
+            To obtain a copy of all information we maintain about you, you may send us a request using the 
+      contact information at the end of this Policy or, if available, through a tool on our site. After 
+      receiving the request, we will tell you when we expect to provide you with the information, and 
+      whether we require any fee for providing it to you.
+      
+          </p>
+          <p class="text-left pl-3 pt-2 pr-5 " style="font-weight: 200;">
+            <br>Remove or Change your Information<br>
+          </p>
+          <p class="p-text">
+            If you wish us to remove or change personally identifiable information that you have provided us, 
+            you may contact us at the contact information at the end of this Policy or if available through a tool 
+            on our site.
+      
+          </p>
+          <p class="text-left pl-3 pt-2 pr-5 " style="font-weight: 200;">
+            <br>Verification of your Information<br>
+          </p>
+          <p class="p-text">
+            When GGera receives any request to access, edit or delete personally identifiable information, we 
+            will first take reasonable steps to verify your identity before granting you access or otherwise 
+            taking any action. This is important to safeguard your information.
+      
+          </p>
+        </ol>
+       
+      </ol> -->
+              <ol>
+                <li
+                  class="text-left text-light font-weight-bold headingg pt-5 pl-3 pb-1"
+                >
+                  11. CONTACT
+                </li>
+                <ol>
+                  <p class="p-text">
+                    If you have questions or concerns about this privacy policy
+                    and the treatment and security of your data, please contact
+                    us using the contact information below:
+                  </p>
+                </ol>
+
+                <ol>
+                  <p class="p-text"><br />GGera.<br /></p>
+                  <li class="list1">• Email : Support@ggera.com</li>
+                  <li class="list1">• Tel.Nr. 0049 17672270928</li>
+                  <li class="list1">• 2921 Komarom, Budapest , Hungary</li>
+                </ol>
+              </ol>
+            </div>
+          </div>
+
+          <h3 class="text-left text-light font-weight-bold headingg pb-5">
+            <span> </span>
+          </h3>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,150 @@
+<div class="about" style="font-family: popins">
+  <div class="showcase">
+    <canvas class="overlap overlap-about" id="c"></canvas>
+  </div>
+
+  <nav
+    class="navbar navbar-expand-lg navbar-dark border1 px-0 py-3"
+    id="navbar1"
+    style="z-index: 10000"
+  >
+    <div class="container-xl">
+      <!-- Logo -->
+      <!-- <a class="navbar-brand" href="#">
+              <img src="https://preview.webpixels.io/web/img/logos/clever-light.svg" class="h-8" alt="...">
+            </a> -->
+      <a href="#" class="navbar-brand text-light pe-auto border-ryt">
+        <img
+          src="../../../assets/img/era.png"
+          width="100"
+          class="h-8"
+          style="width: 50px; height: 50px"
+      /></a>
+      <!-- Navbar toggle -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse"
+        aria-controls="navbarCollapse"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <!-- Nav -->
+        <div class="navbar-nav mx-lg-auto en_lang">
+          <a class="btn1 btn-trapezoid-outline m-1 " href="index">
+            <span>{{ "home" | translate }}</span>
+          </a>
+          <a class="btn2 btn-trapezoid-outline2 m-1 " href="about">
+            <span>{{ "about" | translate }}</span>
+          </a>
+
+          <a class="btn1 btn-trapezoid-outline m-1 active1" href="roaster">
+            <span>{{ "pro players" | translate }}</span>
+          </a>
+        </div>
+
+        <div class="end1">
+          <img src="../../../assets/img/line.png" alt="" srcset="" />
+        </div>
+        <!-- Right navigation -->
+
+        <!-- <a class="nav-item nav-link" href="#">Sign in</a> -->
+        <div class="switch2">
+          <select
+            class="form-select form-select-lg mb-3"
+            #langSelect
+            (change)="translate.use(langSelect.value)"
+          >
+            <option
+              value="en"
+              [attr.selected]="'en' === translate.currentLang ? '' : null"
+            >
+              English
+            </option>
+            <option
+              value="de"
+              [attr.selected]="'de' === translate.currentLang ? '' : null"
+            >
+              German
+            </option>
+            <option
+              value="ar"
+              [attr.selected]="'ar' === translate.currentLang ? '' : null"
+            >
+              Arabic
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <style>
+    .sticky {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding-bottom: 50px;
+      background-color: #000000;
+    }
+
+    .border1 {
+      border-bottom: 2px solid !important;
+      border-bottom-color: #ff6e30 !important;
+    }
+
+    .sticky + .content {
+      padding-top: 60px;
+    }
+
+    .border-ryt {
+      padding-right: 10px;
+      border-right: 2px solid !important;
+      border-right-color: #ff6e30 !important;
+    }
+  </style>
+
+  <div class="container pt-5 col-lg-9">
+    <div class="d-flex justify-content-between pb-5">
+      <div class="pro">
+        <h2><span class="color"> PRO PLAYERS</span></h2>
+      </div>
+      <div class="button pt-5">
+        <button
+          class="clay btn btn-warning"
+          style="cursor: pointer"
+          onClick="window.location.reload();"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-arrow-clockwise"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"
+            />
+            <path
+              d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"
+            />
+          </svg>
+          Refresh
+        </button>
+      </div>
+    </div>
+
+    <div class="pt-5">
+      <app-roaster-player></app-roaster-player>
+    </div>
+  </div>
+  <div class="container pt-5">
+    <app-footer></app-footer>
+  </div>
+</div>

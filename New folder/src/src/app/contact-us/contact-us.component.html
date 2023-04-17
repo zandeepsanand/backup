@@ -1,0 +1,73 @@
+<div class="col-lg-12 col-sm-12 col-md-12">
+    <div class="screen">
+      <div class="screen-header">
+        <div class="screen-header-left">
+          <div class="screen-header-button close"></div>
+          <div class="screen-header-button maximize"></div>
+          <div class="screen-header-button minimize"></div>
+        </div>
+        <div class="screen-header-right">
+          <!-- <div class="screen-header-ellipsis"></div>
+          <div class="screen-header-ellipsis"></div>
+          <div class="screen-header-ellipsis"></div> -->
+        </div>
+      </div>
+      <div class="screen-body">
+        <div class="screen-body-item left">
+          <div class="app-title">
+            <span>CONTACT</span>
+            <span>US</span>
+          </div>
+          <!-- <div class="app-contact">CONTACT INFO : </div> -->
+        </div>
+        <div class="screen-body-item">
+          <form #productForm="ngForm" (ngSubmit)="onProductCreate(productForm.value)" [formGroup]="form">
+          <div class="app-form" >
+            <div class="app-form-group">
+              <input class="app-form-control" placeholder="NAME" name="pName"  formControlName="name"  [ngClass]="{ 'is-invalid': submitted && f['name']?.errors }">
+              <div *ngIf="submitted && f['name']?.errors" class="invalid-feedback">
+                <div *ngIf="f['name']?.errors?.['required']">Username is required</div>
+                <div *ngIf="f['name']?.errors?.['minlength']">
+                  Username must be at least 6 characters
+                </div>
+                <div *ngIf="f['name']?.errors?.['maxlength']">
+                  Username must not exceed 20 characters
+                </div>
+              </div>
+            </div>
+            <div class="app-form-group">
+              <input class="app-form-control" placeholder="EMAIL" formControlName="email" name="pEmail"   [ngClass]="{ 'is-invalid': submitted && f?.['email'].errors }"> 
+              <div *ngIf="submitted && f?.['email'].errors" class="invalid-feedback">
+                <div *ngIf="f?.email.errors.required">Email is required</div>
+                <div *ngIf="f?.email.errors.email">Email is invalid</div>
+              </div>
+            </div>
+            <div class="app-form-group">
+              <input class="app-form-control" formControlName="contactNumber" placeholder="CONTACT NO" name="pContact" [ngClass]="{ 'is-invalid': submitted && f?.['contactNumber'].errors }">
+              <div *ngIf="submitted && f?.['contactNumber'].errors" class="invalid-feedback">
+                <div *ngIf="f?.contactNumber.errors.required">Mobile Number is required</div>
+                <div *ngIf="f?.contactNumber.errors.pattern">Mobile Number is invalid</div>
+              </div>
+            </div>
+            <div class="app-form-group message">
+              <input class="app-form-control" formControlName="message" placeholder="MESSAGE" name="pMessage" [ngClass]="{ 'is-invalid': submitted && f?.['message'].errors }">
+              <div *ngIf="submitted && f?.['message'].errors" class="invalid-feedback">
+                <div *ngIf="f?.message.errors.required">Message is required</div>
+           
+              </div>
+            </div>
+            <div class="app-form-group buttons mt-5">
+              <button class="app-form-button p-2" mat-button mat-dialog-close>CANCEL</button>
+              
+              <button class="app-form-button p-2" mat-button  type="submit" >SEND</button>
+             
+            </div>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+   
+  

@@ -1,0 +1,275 @@
+<div class="about">
+  <div class="showcase">
+    <canvas class="overlap overlap-about" id="c"></canvas>
+  </div>
+
+  <nav
+    class="navbar navbar-expand-lg navbar-dark border1 px-0 py-3"
+    id="navbar1"
+    style="z-index: 10000"
+  >
+    <div class="container-xl">
+      <!-- Logo -->
+      <!-- <a class="navbar-brand" href="#">
+          <img src="https://preview.webpixels.io/web/img/logos/clever-light.svg" class="h-8" alt="...">
+        </a> -->
+      <a href="#" class="navbar-brand text-light pe-auto border-ryt">
+        <img
+          src="../../../assets/img/era.png"
+          width="100"
+          class="h-8"
+          style="width: 50px; height: 50px"
+      /></a>
+      <!-- Navbar toggle -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse"
+        aria-controls="navbarCollapse"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <!-- Nav -->
+        <div class="navbar-nav mx-lg-auto en_lang active-lang">
+          <a class="btn1 btn-trapezoid-outline m-1 " href="index">
+            <span>{{ "home" | translate }}</span>
+          </a>
+          <a class="btn2 btn-trapezoid-outline2 m-1 active1" href="about">
+            <span>{{ "about" | translate }}</span>
+          </a>
+
+          <a class="btn1 btn-trapezoid-outline m-1 " href="roaster">
+            <span>{{ "pro players" | translate }}</span>
+          </a>
+        </div>
+
+        <div class="end1">
+          <img src="../../../assets/img/line.png" alt="" srcset="" />
+        </div>
+        <!-- Right navigation -->
+
+        <!-- <a class="nav-item nav-link" href="#">Sign in</a> -->
+        <div class="switch2">
+          <select
+            class="form-select form-select-lg mb-3"
+            #langSelect
+            (change)="translate.use(langSelect.value)" 
+
+          >
+            <option value="en" [attr.selected]=" 'en' === translate.currentLang ? '' : null">English</option>
+            <option value="de" [attr.selected]=" 'de' === translate.currentLang ? '' : null">German</option>
+            <option value="ar" [attr.selected]=" 'ar' === translate.currentLang ? '' : null">Arabic</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <style>
+    .sticky {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding-bottom: 50px;
+      background-color: #000000;
+    }
+
+    .border1 {
+      border-bottom: 2px solid !important;
+      border-bottom-color: #ff6e30 !important;
+    }
+
+    .sticky + .content {
+      padding-top: 60px;
+    }
+    .border-ryt {
+      padding-right: 10px;
+      border-right: 2px solid !important;
+      border-right-color: #ff6e30 !important;
+    }
+  </style>
+
+  <div class="container view">
+    <div class="col-lg-12 pt-5">
+      <div class="d-flex justify-content-center">
+        <h1 class="en_lang active-lang" style="font-weight: 600; color: white">
+          {{ "Meet the Team" | translate }}
+        </h1>
+      </div>
+    </div>
+    <div
+      class="col-12 col-sm-12 col-lg-12 col-md-12 d-flex justify-content-center"
+    >
+      <div class="large-text">
+        <div class="container d-flex justify-content-center">
+          <div class="col-sm-12 col-md-9 col-lg-8">
+            <img src="../../../assets/img/aboutteam.png" class="img-fluid" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <div class="container p-3">
+        <div class="d-flex justify-content-center">
+          <a href="https://gaming.ggera.com" class="p-1" style="z-index: 10">
+            <div class="clay btn btn-warning active-lang">
+              <a style="text-decoration: none; color: #ffff; z-index: 10">{{
+                "Signup" | translate
+              }}</a>
+            </div></a
+          >
+
+          <a href="https://gaming.ggera.com" class="p-1" style="z-index: 10">
+            <div class="clay btn btn-secondary active-lang">
+              <a style="text-decoration: none; color: #ffff; z-index: 10">{{
+                "Login" | translate
+              }}</a>
+            </div></a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="container" style="overflow: hidden">
+      <div class="row">
+        <div
+          class="col-lg-12 col-sm-12 col-md-6 d-flex justify-content-center p-2 pb-5"
+          data-aos-anchor-placement="top-bottom"
+        >
+          <div class="box">
+            <div
+              class="card mycard"
+              style="
+                width: 20rem;
+                height: 13.5rem;
+                background-color: transparent;
+              "
+            >
+              <img
+                class="card-img-top"
+                src="../../../assets/img/about-box.png"
+                alt="Card image cap"
+              />
+              <div class="d-flex justify-content-center en_lang active-lang">
+                <a
+                  href="https://gaming.ggera.com"
+                  style="text-decoration: none; color: #ffff"
+                >
+                  <button
+                    class="clay btn btn-warning en_lang active-lang"
+                    style="height: 50px; width: 150px"
+                  >
+                    <span class="btn-label">{{
+                      "Try it now" | translate
+                    }}</span>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="en_lang active-lang">
+    <section class="container22" style="z-index: 100">
+      <h2 class="text-center text-light font-weight-bold headingg pb-5">
+        <span>{{ "About GGERA" | translate }}</span>
+      </h2>
+      <div class="container22">
+        <div class="row p-3">
+          <div class="col-lg-6 pb-5 col-sm-12 col-md-6">
+            <div class="card1 plan_card1 m-2 hover-div box1">
+              <span></span>
+              <h3 class="text-center p-3 font-weight-normal">
+                {{
+                  "We understand aspiring gamers, the unchallenged and those looking for community"
+                    | translate
+                }}
+              </h3>
+              <p class="text-left pl-5 pt-2 pr-5" style="font-weight: 300">
+                {{
+                  "That's the reason behind GGEra. We believe everyone has their own unique potential to be great, but it can be hard to realize your potential when you're alone or diving head-first into a game you don’t quite understand."
+                    | translate
+                }}
+              </p>
+              <p class="text-left pl-5 pr-5 pb-5">
+                {{ "We’ve been there, too." | translate }}
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6 pb-5 col-sm-12 col-md-6">
+            <div class="card1 plan_card1 m-2 hover-div box1">
+              <span></span>
+              <h3 class="text-center p-3 font-weight-normal">
+                {{
+                  "A community to discover your gaming identity." | translate
+                }}
+              </h3>
+              <p class="text-left pl-5 pt-2 pr-5 pb-5" style="font-weight: 200">
+                {{
+                  "Strengths and weaknesses. Passion for gaming. Honing your skills. And growing as an e-gamer; an internet athlete."
+                    | translate
+                }}
+                <br />
+                {{
+                  "This is our focus. Whether you want to become a pro yourself or improve your game, our platform gets you there. The pros we hire cover all aspects: from strategy, communication, and teamwork, to mental strength and reflexes."
+                    | translate
+                }}
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6 pb-5 col-sm-12 col-md-6">
+            <div class="card1 plan_card1 m-2 hover-div box1">
+              <span></span>
+              <h3 class="text-center p-3 font-weight-normal">
+                {{ " A gaming experience like no other." | translate }}
+              </h3>
+              <p class="text-left pl-5 pt-2 pr-5 pb-5" style="font-weight: 200">
+                {{
+                  "We know that when you're ready to take your gaming the next step, you need an experience that's going to push you past your limits and show you how far you can go."
+                    | translate
+                }}
+                <br />
+                {{
+                  "We create experiences that let you do just that—whether that means hiring one of our pros to train you one-on-one or playing in tournaments against some of the best players out there. We'll bring all the action right to your screen. "
+                    | translate
+                }}
+                <br />
+                {{
+                  "That’s the goal of GGera. Bridging the gap between player and pro for those looking for it."
+                    | translate
+                }}
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6 pb-5 col-sm-12 col-md-6">
+            <div class="card1 plan_card1 m-2 hover-div box1">
+              <span></span>
+              <h3 class="text-center p-3 font-weight-normal">
+                {{
+                  "Together, we’re making a powerful, challenging platform."
+                    | translate
+                }}
+              </h3>
+              <p class="text-left pl-5 pt-2 pr-5 pb-5" style="font-weight: 200">
+                {{
+                  "Join us on this endeavor to make gaming fun again. Climb the ranks, discover a real opponent, and hone your skills."
+                    | translate
+                }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<app-footer></app-footer>

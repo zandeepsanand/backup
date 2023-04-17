@@ -1,0 +1,72 @@
+.clay {
+    --dark-inset-shadow: rgba(106, 115, 123, 0.25);
+    --light-inset-shadow: rgba(255, 255, 255, 0.4);
+    --clay-box-shadow: rgba(106, 115, 123, 0.55);
+    --clay-background-color: #f1f2f3;
+    --clay-fg-color: #000;
+    background-color: var(--clay-background-color);
+    box-shadow: 8px 8px 16px 0 var(--clay-box-shadow), inset -8px -8px 12px 0 var(--dark-inset-shadow), inset 8px 8px 12px 0 var(--light-inset-shadow);
+    /* Light inset shadow */
+    color: var(--clay-fg-color);
+    border: 0;
+  }
+  
+  .clay.btn {
+    padding: 0.7rem 0.8rem ;
+  }
+  .clay.btn:focus:not(:focus-visible) {
+    outline: none;
+  }
+  .clay.btn:active, .clay.btn.clicked {
+    box-shadow: 2px 2px 4px 0 var(--clay-box-shadow), inset -8px -8px 12px 0 var(--light-inset-shadow), inset 8px 8px 12px 0 var(--dark-inset-shadow);
+    /* Light inset shadow */
+  }
+  
+  .clay.btn-warning {
+    --dark-inset-shadow: rgba(0, 0, 0, 0.25);
+    --light-inset-shadow: rgba(194, 230, 250, 0.4);
+    --clay-box-shadow: rgba(130, 60, 3, 0.55);;
+    --clay-background-color: #e46e0e;
+    --clay-fg-color: #f1f2f3;
+  }
+  
+  .clay.btn-secondary {
+    --dark-inset-shadow: rgba(3, 84, 130, 0.25);
+    --light-inset-shadow: rgba(255, 255, 255, 0.4);
+    --clay-box-shadow: rgba(130, 60, 3, 0.55);
+    --clay-background-color: #141001;
+    --clay-fg-color: #f1f2f3;
+  }
+  
+  .clay.btn-group {
+    --dark-inset-shadow: rgba(128, 128, 128, 0.25);
+    --light-inset-shadow: rgba(255, 255, 255, 0.4);
+    --clay-box-shadow: rgba(128, 128, 128, 0.55);
+    --clay-background-color: #fff;
+    --clay-fg-color: #f1f2f3;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+  
+  .clay.btn-icon-only.btn:hover {
+    background-color: var(--clay-background-color);
+    
+  }
+  
+  .btn + .btn {
+    margin-left: 0.5rem;
+  }
+  
+  .clay.buttons {
+    --dark-inset-shadow: rgba(128, 128, 128, 0.25);
+    --light-inset-shadow: rgba(255, 255, 255, 0.4);
+    --clay-box-shadow: rgba(128, 128, 128, 0.55);
+    --clay-background-color: #fff;
+    --clay-fg-color: #f1f2f3;
+  }
+  .bg {
+    background-color: rgba(17, 17, 17, 0.552) !important;
+  }
+  .border-radius{
+    border-radius: 15px;
+  }
