@@ -30,10 +30,12 @@
     "jquery": "^3.6.3",
     "ngx-cookie-service": "^15.0.0",
     "ngx-translate-cache": "^9.0.2",
+    "ngx-youtube-player": "^12.0.2",
     "rxjs": "~7.8.0",
     "sweetalert2": "^11.7.0",
     "swiper": "^8.4.6",
     "tslib": "^2.3.0",
+    "twitch-player": "^2.0.2",
     "zone.js": "~0.12.0"
   },
   "devDependencies": {

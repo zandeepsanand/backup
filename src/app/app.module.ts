@@ -22,6 +22,10 @@ import { PrivacyComponent } from './privacy/privacy.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ApplyNowComponent } from './apply-now/apply-now.component';
 import { AuthInterceptor } from './auth.interceptor';
+import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
+
+
+
 
 
 
@@ -40,7 +44,8 @@ import { AuthInterceptor } from './auth.interceptor';
     TermsConditionComponent,
     PrivacyComponent,
     ContactUsComponent,
-    ApplyNowComponent
+    ApplyNowComponent,
+    
 
   ],
   imports: [
@@ -54,6 +59,9 @@ import { AuthInterceptor } from './auth.interceptor';
     I18nModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxYoutubePlayerModule,
+    
+   
    
     
   ],

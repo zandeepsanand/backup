@@ -1,3 +1,4 @@
+
 <div class="pt-5 " *ngFor="let item of empdata"
 data-aos-anchor-placement="top-bottom">
     <section class="premade-parties-wrapper">
@@ -5,13 +6,31 @@ data-aos-anchor-placement="top-bottom">
         <div class="streamLobbyItem">
           <div class="streamLobbyItemVideo">
             <div class="streamLobbyItemVideoCover">
-              <img *ngIf="showMe" class="streamLobbyItemVideoCoverImage" src="../../../assets/img/cod-party.jpg" alt="" srcset="">
-              <iframe *ngIf="!showMe" width="856" height="406" class="streamLobbyItemVideoCoverImage" src="{{item.party.streamLink}}"
+              <img *ngIf="!isYouTubeLink(item.party.streamLink)" class="streamLobbyItemVideoCoverImage" src="../../../assets/img/cod-party.jpg" alt="" srcset="">
+              <!-- <iframe *ngIf="!showMe" width="856" height="406" class="streamLobbyItemVideoCoverImage" src="{{item.party.streamLink}}"
                 title="" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
+                allowfullscreen></iframe> -->
+                <ng-container *ngIf="isTwitchLink(item.party.streamLink)">
+                  <!-- Add Twitch video player component here -->
                
-              <img (click)="toggleTag()" *ngIf="showMe" class="streamLobbyItemPlayButton" src="../../../assets/img/play.svg" alt="">
+                
+                </ng-container>
+
+                <ng-container *ngIf="isYouTubeLink(item.party.streamLink)">
+                  <div class="youtube-player-container">
+                    <youtube-player
+                    [videoId]="extractVideoId(item.party.streamLink)"
+                    [width]="856"
+                    [height]="406"
+                  ></youtube-player>
+                  </div>
+                  
+                </ng-container>
+              
+
+
+            <img (click)="toggleTag()" *ngIf="!isYouTubeLink(item.party.streamLink)" class="streamLobbyItemPlayButton" src="../../../assets/img/play.svg" alt="">
             </div>
           </div>
           <div class="streamLobbyItemInfoWrapper">
