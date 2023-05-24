@@ -23,6 +23,11 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ApplyNowComponent } from './apply-now/apply-now.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
+import { LoginComponent } from './login/login.component';
+import { FooterNewComponent } from './footer-new/footer-new.component';
+import { OtpPageComponent } from './otp-page/otp-page.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { PremadePartyNewComponent } from './premade-party-new/premade-party-new.component';
 
 
 
@@ -45,6 +50,12 @@ import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
     PrivacyComponent,
     ContactUsComponent,
     ApplyNowComponent,
+    LoginComponent,
+    FooterNewComponent,
+    OtpPageComponent,
+    NavbarComponent,
+    PremadePartyNewComponent
+  
     
 
   ],

@@ -1,0 +1,150 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Your Logo</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">
+                <img src="../../../assets/img/Vector.png" alt="Icon 1" class="dropdown-icon"> Icon 1
+              </a>
+              <a class="dropdown-item" href="#">
+                <img src="../../../assets/img/Vector.png" alt="Icon 2" class="dropdown-icon"> Icon 2
+              </a>
+              <a class="dropdown-item" href="#">
+                <img src="../../../assets/img/Vector.png" alt="Icon 3" class="dropdown-icon"> Icon 3
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav> -->
+  <nav
+      class="navbar navbar-expand-lg active-lang active-lang"
+      id="navbar1"
+      style="position: relative"
+    >
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler navbar-dark"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="img navbar-brand pl-3">
+          <a href="#" class="navbar-brand text-light pe-auto">
+            <img
+              src="../../../assets/img/era.png"
+              width="100"
+              class="d-inline-block align-top d-block d-sm-block d-md-block d-lg-none"
+              style="width: 70px; height: 70px; padding: 10px"
+          /></a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div
+            class="navbar-nav w-100 justify-content-center text-nowrap"
+            id="navElements"
+          >
+            <div class="nav-item">
+              <!-- <a
+            class="navbar-brand text-light m-0 col-sm-12"
+            style="color: inherit"
+           href="index"
+          >
+            <img
+              src="../../../assets/img/{{'active-home' | translate}}.png"
+              alt=""
+              width="160"
+              height="40px"
+            />
+          </a> -->
+
+              <a class="btn1 btn-trapezoid-outline m-1 active1" href="index">
+                <span>{{ "home" | translate }}</span>
+              </a>
+            </div>
+            <div class="nav-item">
+              <!-- <a
+            class="navbar-brand text-light m-0 col-sm-12"
+            style="color: inherit"
+            href="about"
+          >
+            <img
+              src="../../../assets/img/{{'deactive-about' | translate}}.png"
+              alt=""
+              width="150"
+              height="40"
+            />
+          </a> -->
+              <a class="btn2 btn-trapezoid-outline2 m-1" href="about">
+                <span>{{ "about" | translate }}</span>
+              </a>
+            </div>
+            <div class="nav-item">
+              <!-- <a
+            class="navbar-brand text-light m-0 col-sm-12"
+            style="color: inherit"
+            href="roaster"
+          >
+            <img
+              src="../../../assets/img/{{'deactive-roaster' | translate}}.png"
+              alt=""
+              width="150"
+              height="40"
+            />
+          </a> -->
+              <a class="btn1 btn-trapezoid-outline m-1 active " href="roaster">
+                <span>{{ "pro players" | translate }}</span>
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-10 col-sm-12 col-md-12"
+            data-aos-anchor-placement="top-bottom"
+          >
+            <div class="switch2">
+              <!-- <select
+                class="form-select form-select-lg mb-3"
+                #langSelect
+                (change)="translate.use(langSelect.value)"
+              >
+                <option
+                  value="en"
+                  [attr.selected]="'en' === translate.currentLang ? '' : null"
+                >
+                  English
+                </option>
+                <option
+                  value="de"
+                  [attr.selected]="'de' === translate.currentLang ? '' : null"
+                >
+                  German
+                </option>
+                <option
+                  value="ar"
+                  [attr.selected]="'ar' === translate.currentLang ? '' : null"
+                >
+                  Arabic
+                </option>
+              </select> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  

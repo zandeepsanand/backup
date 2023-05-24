@@ -1,0 +1,19 @@
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #333333;
+    padding-top: 10px;
+  }
+  
+  .copy-right {
+    margin-right: 20px;
+  }
